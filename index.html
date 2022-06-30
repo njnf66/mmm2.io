@@ -21,9 +21,9 @@
 		}
 
 		span {
-			font-size: 2.5vh;
+			font-size: 4.5vw;
 			color: #fff;
-			margin-bottom: 2.5vh;
+			margin-bottom: 1.5vh;
 		}
 
 		.contentBox {
@@ -36,22 +36,12 @@
 			width: 100%;
 			height: 100%;
 			background: url(logo.png) no-repeat;
-			background-size: 10.5vh;
-			background-position: 92% 1vh;
-			padding: 2vh 3vh;
+			background-size: 12vh;
+			background-position: right 5.5vw top 1vh;
+			padding: 2vh 5.5vw;
 			box-sizing: border-box;
 			display: flex;
 			flex-direction: column;
-		}
-
-		.username {
-			height: 100%;
-			width: 50%;
-			padding: 0;
-			border: 0;
-			background: transparent;
-			color: #fff;
-			font-size: 2.5vh;
 		}
 
 		.box {
@@ -60,6 +50,7 @@
 			background: #fff;
 			padding: 3vw 2vw;
 			border-radius: 1vh;
+			margin-top: 1vh;
 			margin-bottom: 4vh;
 			box-sizing: border-box;
 			display: flex;
@@ -68,8 +59,9 @@
 			overflow: hidden;
 		}
 
+		/*条形码设置*/
 		#barcode {
-			height: 10vh;
+			height: 11vh;
 		}
 
 		.time {
@@ -100,32 +92,40 @@
 
 		.txt {
 			color: rgb(35, 146, 69);
-			font-size: 1.5vh;
+			font-size: 3.5vw;
 			margin-bottom: 3vh;
 			padding: 0vw 4vw;
 		}
 
 		.cardBox {
-			height: 5vw;
-			line-height: 5vw;
+			position: relative;
+			height: 6vw;
 			padding: 0vw 4vw;
 			margin-bottom: 2vh;
 		}
 
 		.card {
-			width: 4vw;
-			height: 4vw;
-			margin-top:0.7vw;
+			position:absolute;
+			width: 5vw;
+			height: 5vw;
+			line-height: 5vw;
 			float: left;
 			box-sizing: border-box;
+			top:50%;
+			transform: translate(0,-50%) ;
 		}
 
 		.cardtext {
-			color: rgb(31, 34, 32);
-			font-size: 4vw;
-			margin-left: 3vw;
+			position:absolute;
+			color: rgb(42, 43, 42);
+			line-height: 3.5vw;
+			font-size: 3.5vw;
+			font-weight:550;	/*字体粗细100~900，,400为normal*/
+			margin-left: 7vw;
 			float: left;
 			box-sizing: border-box;
+			top:50%;
+			transform: translate(0,-50%) ;
 		}
 
 		.nameBox {
@@ -149,7 +149,7 @@
 			/* position: absolute;
 			left: 0;
 			bottom: 10vh; */
-			height: 9vh;
+			height: 7vh;
 			font-size: 5vh;
 			color: rgb(35, 146, 69);
 			width: 100%;
@@ -174,14 +174,14 @@
 <body>
 	<div class="contentBox">
 		<div class="content">
-			<span>姓名： <input type="text" class="username" value="呃呃呃"></span>
-			<span>部门： 数学与计算机科学学院</span>
+			<span style="margin-top: 0.5vh;"> 姓名： 呃呃呃</span>
+			<span style="margin-bottom: 3vh;">部门： 数学与计算机科学学院</span>
 			<div class="box" style="height:auto">
 				<img id="barcode">
 				<div class="time">
-					<span id="date"></span>
-					<span id="second"></span>
-					<span id="time"></span>
+					<span id="date" style="font-weight:600"></span>
+					<span id="second" style="font-weight:600"></span>
+					<span id="time" style="font-weight:600"></span>
 				</div>
 				<div class="qcodeBox">
 					<div id="qrcode"></div>
@@ -231,8 +231,8 @@
 
 		//生成二维码
 		var config = {
-			width: $(document.body).height() / 100.0 * 18.5,
-			height:$(document.body).height() / 100.0 * 18.5,
+			width: $(document.body).width() / 100.0 * 31,
+			height:$(document.body).width() / 100.0 * 31,
 			text: '404811811811881181188118', //text就表示二维码中存储的数据  必须传递
 			correctLevel: 1,  		//取值为0|1|2|3 表示二维码的纠错级别0:L/1:M/2:Q/3:H ,默认0  可选参数
 			background: "#FFFFFF",	//默认白色, 表示二维码的后景颜色 可选参数
