@@ -1,0 +1,279 @@
+<html><head>
+	<meta charset="utf-8">
+	<title>福州大学一码通</title>
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://cdn.bootcss.com/jsbarcode/3.8.0/JsBarcode.all.min.js"></script>
+	<style type="text/css">
+		html,
+		body {
+			height: 100%;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+
+		span {
+			font-size: 2.5vh;
+			color: #fff;
+			margin-bottom: 2.5vh;
+		}
+
+		.contentBox {
+			width: 100%;
+			height: 100%;
+			background: rgb(10, 130, 190);
+		}
+
+		.content {
+			width: 100%;
+			height: 100%;
+			background: url(logo.png) no-repeat;
+			background-size: 10.5vh;
+			background-position: 92% 1vh;
+			padding: 2vh 3vh;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.username {
+			height: 100%;
+			width: 50%;
+			padding: 0;
+			border: 0;
+			background: transparent;
+			color: #fff;
+			font-size: 2.5vh;
+		}
+
+		.box {
+			position: relative;
+			/* width: 100%; */
+			height: 60vh;
+			background: #fff;
+			padding: 2vh 3vh;
+			border-radius: 1vh;
+			margin-bottom: 4vh;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: column;
+			/* justify-content: space-between; */
+			overflow: hidden;
+		}
+
+		#barcode {
+			width: 100%;
+		}
+
+		.time {
+			height: 8vh;
+			display: flex;
+			align-items: baseline;
+			justify-content: center;
+		}
+
+		#second {
+			margin: 0 1vh;
+			font-size: 4vh;
+		}
+
+		.time span {
+			font-size: 2.2vh;
+			color: rgb(35, 146, 69);
+			font-weight: bold;
+		}
+
+		.qcodeBox {
+			display: flex;
+			justify-content: center;
+		}
+
+		.qcode {
+			width: 19vh;
+			height: 17vh;
+		}
+
+		.txt {
+			color: rgb(35, 146, 69);
+			font-size: 1.5vh;
+			margin-bottom: 3vh;
+		}
+
+		.card {
+			width: 5vh;
+			height: 5vh;
+		}
+
+		.nameBox {
+			display: flex;
+			justify-content: center;
+		}
+
+		#name {
+			height: 3vh;
+			width: 15vh;
+			font-size: 2.2vh;
+			font-weight: bold;
+			color: #fff;
+			background: transparent;
+			border: 0.2vh solid #fff;
+			border-radius: 0.8vh;
+			text-align: center;
+		}
+
+		#float {
+			/* position: absolute;
+			left: 0;
+			bottom: 10vh; */
+			height: 9vh;
+			font-size: 5vh;
+			color: rgb(35, 146, 69);
+			width: 100%;
+			display: inline-block;
+			padding-left: 100%;
+			animation: turnLeft 4s linear infinite;
+			/* font-weight: bold; */
+		}
+
+		@keyframes turnLeft {
+			from {
+				transform: translateX(0);
+			}
+
+			to {
+				transform: translateX(-62%);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="contentBox">
+		<div class="content">
+			<span>姓名： <input type="text" class="username" value="呃呃呃"></span>
+			<span>部门： 数学与计算机科学学院</span>
+			<div class="box" style="line-height: normal;">
+				<img id="barcode" src="data:image/png;base64,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">
+				<div class="time">
+					<span id="date"></span>
+					<span id="second"></span>
+					<span id="time"></span>
+				</div>
+				<div class="qcodeBox">
+					<img class="qcode" src="qcode2.png">
+				</div>
+				<div id="float">富强</div>
+				<div class="txt">
+					未见异常，允许通行，请主动出示，配合检测，并做好自我防护，出行前请确认。
+				</div>
+				<img class="card" src="card.png" style="height: 20px;width: 20px;">
+			</div>
+			<div class="nameBox">
+				<input type="text" id="name" value="每日健康填报" onfocus="clearName()" onblur="getName()">
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		let date = dateFormat(new Date())
+		$('#date').html(date)
+		let time = dateFormat2(new Date())
+		$('#time').html(time)
+
+
+		let second
+		setInterval(() => {
+			second = new Date().getSeconds()
+			if (second < 10) second = '0' + second
+			$('#second').html(second)
+		}, 1000)
+
+
+		CreateIma()
+		//生成条码
+		function CreateIma() {
+			var content = '314811811811881181188118';
+			var barcode = document.getElementById('barcode'),
+				//str = "chenyanbin",
+				options = {
+					format: "CODE128",
+					displayValue: true,
+					fontSize: 0,
+					height: 100
+				};
+			JsBarcode(barcode, content, options); //原生JS方式
+			// $('#barcode').JsBarcode(string, options); //jQuery方式
+		}
+
+		function dateFormat(data) {
+			Date.prototype.Format = function(fmt) {
+				var o = {
+					'M+': this.getMonth() + 1, //月份
+					'd+': this.getDate(), //日
+					'h+': this.getHours(), //小时
+					'm+': this.getMinutes(), //分
+					's+': this.getSeconds() //秒
+				};
+				if (/(y+)/.test(fmt)) {
+					//根据y的长度来截取年
+					fmt = fmt.replace(
+						RegExp.$1,
+						(this.getFullYear() + '').substr(4 - RegExp.$1.length)
+					);
+				}
+				for (var k in o) {
+					if (new RegExp('(' + k + ')').test(fmt))
+						fmt = fmt.replace(
+							RegExp.$1,
+							RegExp.$1.length == 1 ?
+							o[k] :
+							('00' + o[k]).substr(('' + o[k]).length)
+						);
+				}
+				return fmt;
+			};
+			return data.Format('MM月dd日');
+		}
+
+		function dateFormat2(data) {
+			Date.prototype.Format = function(fmt) {
+				var o = {
+					'M+': this.getMonth() + 1, //月份
+					'd+': this.getDate(), //日
+					'h+': this.getHours(), //小时
+					'm+': this.getMinutes(), //分
+					's+': this.getSeconds() //秒
+				};
+				if (/(y+)/.test(fmt)) {
+					//根据y的长度来截取年
+					fmt = fmt.replace(
+						RegExp.$1,
+						(this.getFullYear() + '').substr(4 - RegExp.$1.length)
+					);
+				}
+				for (var k in o) {
+					if (new RegExp('(' + k + ')').test(fmt))
+						fmt = fmt.replace(
+							RegExp.$1,
+							RegExp.$1.length == 1 ?
+							o[k] :
+							('00' + o[k]).substr(('' + o[k]).length)
+						);
+				}
+				return fmt;
+			};
+			return data.Format('hh:mm');
+		}
+
+		function clearName() {
+			$('#name').val('')
+		}
+
+		function getName() {
+			let name = $('#name').val()
+			$('#float').html(name)
+			$('#name').val('每日健康填报')
+		}
+	</script>
+
+
+<div class="xqdd_bubble"><span class="xqdd_bubble_delete">✖</span><span class="xqdd_bubble_word"></span><span class="xqdd_bubble_trans"></span></div></body></html>
