@@ -21,7 +21,7 @@
 		}
 
 		span {
-			font-size: 4.5vw;
+			font-size: 5vw;
 			color: #fff;
 			margin-bottom: 1.5vh;
 		}
@@ -37,8 +37,8 @@
 			height: 100%;
 			background: url(logo.png) no-repeat;
 			background-size: 12vh;
-			background-position: right 5.5vw top 1vh;
-			padding: 2vh 5.5vw;
+			background-position: right 7vw top 1vh;
+			padding: 2vh 7vw;
 			box-sizing: border-box;
 			display: flex;
 			flex-direction: column;
@@ -73,13 +73,14 @@
 
 		#second {
 			margin: 0 1vh;
-			font-size: 4vh;
+			font-size: 5vh;
+			font-weight:750;	/*字体粗细100~900，,400为normal*/
 		}
 
 		.time span {
-			font-size: 2.2vh;
+			font-size: 3vh;
 			color: rgb(35, 146, 69);
-			font-weight: bold;
+			font-weight:750;	/*字体粗细100~900，,400为normal*/
 		}
 
 		.qcodeBox {
@@ -94,13 +95,13 @@
 			color: rgb(35, 146, 69);
 			font-size: 3.5vw;
 			margin-bottom: 3vh;
-			padding: 0vw 4vw;
+			padding: 0vw 5vw;
 		}
 
 		.cardBox {
 			position: relative;
 			height: 6vw;
-			padding: 0vw 4vw;
+			padding: 0vw 5vw;
 			margin-bottom: 2vh;
 		}
 
@@ -120,7 +121,7 @@
 			color: rgb(42, 43, 42);
 			line-height: 3.5vw;
 			font-size: 3.5vw;
-			font-weight:550;	/*字体粗细100~900，,400为normal*/
+			font-weight:700;	/*字体粗细100~900，,400为normal*/
 			margin-left: 7vw;
 			float: left;
 			box-sizing: border-box;
@@ -149,6 +150,7 @@
 			/* position: absolute;
 			left: 0;
 			bottom: 10vh; */
+			margin-top: 0.5vh;
 			height: 7vh;
 			font-size: 5vh;
 			color: rgb(35, 146, 69);
@@ -179,9 +181,9 @@
 			<div class="box" style="height:auto">
 				<img id="barcode">
 				<div class="time">
-					<span id="date" style="font-weight:600"></span>
-					<span id="second" style="font-weight:600"></span>
-					<span id="time" style="font-weight:600"></span>
+					<span id="date"></span>
+					<span id="second"></span>
+					<span id="time"></span>
 				</div>
 				<div class="qcodeBox">
 					<div id="qrcode"></div>
