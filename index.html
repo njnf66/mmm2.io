@@ -21,7 +21,7 @@
 		}
 
 		span {
-			font-size: 5vw;
+			font-size: 5.5vw;
 			color: #fff;
 			margin-bottom: 1.5vh;
 		}
@@ -36,9 +36,9 @@
 			width: 100%;
 			height: 100%;
 			background: url(logo.png) no-repeat;
-			background-size: 12vh;
+			background-size: 14vh;
 			background-position: right 7vw top 1vh;
-			padding: 2vh 7vw;
+			padding: 3vh 7vw;
 			box-sizing: border-box;
 			display: flex;
 			flex-direction: column;
@@ -48,9 +48,9 @@
 			position: relative;
 			/* width: 100%; */
 			background: #fff;
-			padding: 3vw 2vw;
+			padding: 2.5vh 2vw;
 			border-radius: 1vh;
-			margin-top: 1vh;
+			margin-top: 2vh;
 			margin-bottom: 4vh;
 			box-sizing: border-box;
 			display: flex;
@@ -73,17 +73,18 @@
 
 		#second {
 			margin: 0 1vh;
-			font-size: 5vh;
-			font-weight:750;	/*字体粗细100~900，,400为normal*/
+			font-size: 7vw;
+			font-weight:900;	/*字体粗细100~900，,400为normal*/
 		}
 
 		.time span {
-			font-size: 3vh;
+			font-size: 4vw;
 			color: rgb(35, 146, 69);
-			font-weight:750;	/*字体粗细100~900，,400为normal*/
+			font-weight:900;	/*字体粗细100~900，,400为normal*/
 		}
 
 		.qcodeBox {
+			margin-top: 1vh;
 			display: flex;
 			justify-content: center;
 		}
@@ -93,7 +94,7 @@
 
 		.txt {
 			color: rgb(35, 146, 69);
-			font-size: 3.5vw;
+			font-size: 3.3vw;
 			margin-bottom: 3vh;
 			padding: 0vw 5vw;
 		}
@@ -107,9 +108,9 @@
 
 		.card {
 			position:absolute;
-			width: 5vw;
-			height: 5vw;
-			line-height: 5vw;
+			width: 5.5vw;
+			height: 5.5vw;
+			line-height: 5.5vw;
 			float: left;
 			box-sizing: border-box;
 			top:50%;
@@ -119,9 +120,9 @@
 		.cardtext {
 			position:absolute;
 			color: rgb(42, 43, 42);
-			line-height: 3.5vw;
-			font-size: 3.5vw;
-			font-weight:700;	/*字体粗细100~900，,400为normal*/
+			line-height: 4vw;
+			font-size: 4vw;
+			font-weight:900;	/*字体粗细100~900，,400为normal*/
 			margin-left: 7vw;
 			float: left;
 			box-sizing: border-box;
@@ -233,8 +234,8 @@
 
 		//生成二维码
 		var config = {
-			width: $(document.body).width() / 100.0 * 31,
-			height:$(document.body).width() / 100.0 * 31,
+			width: $(document.body).width() / 100.0 * 33,
+			height:$(document.body).width() / 100.0 * 33,
 			text: '404811811811881181188118', //text就表示二维码中存储的数据  必须传递
 			correctLevel: 1,  		//取值为0|1|2|3 表示二维码的纠错级别0:L/1:M/2:Q/3:H ,默认0  可选参数
 			background: "#FFFFFF",	//默认白色, 表示二维码的后景颜色 可选参数
