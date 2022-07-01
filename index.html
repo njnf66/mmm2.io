@@ -23,7 +23,7 @@
 		span {
 			font-size: 5.5vw;
 			color: #fff;
-			margin-bottom: 1.7vh;
+			margin-bottom: 2vh;
 		}
 
 		.contentBox {
@@ -36,7 +36,7 @@
 			width: 100%;
 			height: 100%;
 			background: url(logo.png) no-repeat;
-			background-size: 14vh;
+			background-size: 13vh;
 			background-position: right 7vw top 0.4vh;
 			padding: 2.3vh 7vw;
 			box-sizing: border-box;
@@ -50,7 +50,7 @@
 			background: #fff;
 			padding: 2.5vh 2vw;
 			border-radius: 1vh;
-			margin-top: 1vh;
+			margin-top: 0.4vh;
 			margin-bottom: 4vh;
 			box-sizing: border-box;
 			display: flex;
@@ -73,12 +73,12 @@
 
 		#second {
 			margin: 0 1vh;
-			font-size: 9vw;
+			font-size: 10vw;
 			font-weight:900;	/*字体粗细100~900，,400为normal*/
 		}
 
 		.time span {
-			font-size: 5vw;
+			font-size: 5.6vw;
 			color: rgb(35, 146, 69);
 			font-weight:900;	/*字体粗细100~900，,400为normal*/
 		}
@@ -96,13 +96,13 @@
 			color: rgb(35, 146, 69);
 			font-size: 3.3vw;
 			margin-bottom: 3vh;
-			padding: 0vw 5vw;
+			padding: 0vw 6vw;
 		}
 
 		.cardBox {
 			position: relative;
 			height: 6vw;
-			padding: 1vh 5vw;
+			padding: 1vh 6vw;
 			margin-bottom: 1vh;
 		}
 
@@ -136,10 +136,10 @@
 		}
 
 		#name {
-			height: 3.5vh;
-			line-height: 3.5vh;
-			width: 30vw;
-			font-size: 2.5vh;
+			height: 3.2vh;
+			line-height: 3.2vh;
+			width:14.3vh;
+			font-size: 2.2vh;	/* 2.2*6=13.2; 13.2+(2.2/2)=14.3 */
 			font-weight: bold;
 			color: #fff;
 			background: transparent;
@@ -152,14 +152,14 @@
 			/* position: absolute;
 			left: 0;
 			bottom: 10vh; */
-			margin-top: 0.5vh;
+			margin-top: 0.7vh;
 			height: 7vh;
-			font-size: 5vh;
+			font-size: 5.5vh;
 			color: rgb(35, 146, 69);
 			width: 100%;
 			display: inline-block;
 			padding-left: 100%;
-			animation: turnLeft 4s linear infinite;
+			animation: turnLeft 5s linear infinite;
 			/* font-weight: bold; */
 		}
 
@@ -178,7 +178,7 @@
 <body>
 	<div class="contentBox">
 		<div class="content">
-			<span style="margin-top: 0.5vh;"> 姓名： 呃呃呃</span>
+			<span style="margin-top: 0.5vh;"> 姓名： 呃呃二</span>
 			<span style="margin-bottom: 3vh;">部门： 物理与信息工程学院</span>
 			<div class="box" style="height:auto">
 				<img id="barcode">
@@ -227,7 +227,7 @@
 					format: "CODE128",
 					displayValue: true,
 					fontSize: 0,
-					height: 100
+					height: 120
 				};
 			JsBarcode(barcode, content, options); //原生JS方式
 			// $('#barcode').JsBarcode(string, options); //jQuery方式
@@ -235,8 +235,8 @@
 
 		//生成二维码
 		var config = {
-			width: $(document.body).width() / 100.0 * 33,
-			height:$(document.body).width() / 100.0 * 33,
+			width: $(document.body).width() / 100.0 * 34,
+			height:$(document.body).width() / 100.0 * 34,
 			text: '404811811811881181188118', //text就表示二维码中存储的数据  必须传递
 			correctLevel: 1,  		//取值为0|1|2|3 表示二维码的纠错级别0:L/1:M/2:Q/3:H ,默认0  可选参数
 			background: "#FFFFFF",	//默认白色, 表示二维码的后景颜色 可选参数
